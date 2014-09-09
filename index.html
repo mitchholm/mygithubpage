@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>That's Not My Name!</title>
+		<link rel="stylesheet" type="text/css" href="the.css">
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<script>
+		function html5_audio(){
+		var a = document.createElement('audio');
+			return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
+		}
+		 
+		var play_html5_audio = false;
+		if(html5_audio()) play_html5_audio = true;
+		 
+		function play_sound(url){
+			if(play_html5_audio){
+				var snd = new Audio(url);
+				snd.load();
+				snd.play();
+			}else{
+				$("#sound").remove();
+				var sound = $("<embed id='sound' type='audio/mpeg' />");
+				sound.attr('src', url);
+				sound.attr('loop', false);
+				sound.attr('hidden', true);
+				sound.attr('autostart', true);
+				$('body').append(sound);
+			}
+		}
+ 
+
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="namebox">Salazar</div>
+			<div id="noButton" class="button" onclick="play_sound('goddamnright.mp3');">That's not my name!</div><div id="yesButton" class="button" onclick="play_sound('thatsnotmyname.mp3')">That's my Name!</div>
+		</div>	
+	</body>
+</html>
