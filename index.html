@@ -3,6 +3,7 @@
 		<title>That's Not My Name!</title>
 		<link rel="stylesheet" type="text/css" href="the.css">
 		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		
 		<script>
 		function html5_audio(){
 		var a = document.createElement('audio');
@@ -27,14 +28,26 @@
 				$('body').append(sound);
 			}
 		}
- 
+		var names;
+		</script>
+		<script src="names.js"/>
+		<script>
+		//  function randomName(){
+		// 	var number = Math.random() * names.size-1;
+		// 	document.getElementById('namebox').innerHTML = names[Math.floor(number)];
+		// }
 
+		function yesButton(){
+			//randomName();
+			play_sound('thatsnotmyname.mp3');
+		}
 		</script>
 	</head>
 	<body>
 		<div id="container">
 			<div id="namebox">Salazar</div>
-			<div id="noButton" class="button" onclick="play_sound('goddamnright.mp3');">That's not my name!</div><div id="yesButton" class="button" onclick="play_sound('thatsnotmyname.mp3')">That's my Name!</div>
+			<div id="noButton" class="button" onclick="play_sound('goddamnright.mp3');">That's my Name!</div>
+			<div id="yesButton" class="button" onmouseup="yesButton()">That's not my name!</div>
 		</div>	
 	</body>
 </html>
