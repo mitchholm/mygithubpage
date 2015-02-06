@@ -3,16 +3,17 @@
 		<title>That's Not My Name!</title>
 		<link rel="stylesheet" type="text/css" href="the.css">
 		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="f.js"></script>
 		<script src="jquery-2.1.1.min.js"></script>
 		<script>
 		function html5_audio(){
 		var a = document.createElement('audio');
 			return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/,''));
 		}
-		 
+
 		var play_html5_audio = false;
 		if(html5_audio()) play_html5_audio = true;
-		 
+
 		function play_sound(url){
 			if(play_html5_audio){
 				var snd = new Audio(url);
@@ -56,6 +57,6 @@
 			<div id="namebox">Loading your Name...</div>
 			<div id="noButton" class="button" onclick="play_sound('goddamnright.mp3');">That's my Name!</div>
 			<div id="yesButton" class="button" onmouseup="yesButton()">That's not my name!</div>
-		</div>	
+		</div>
 	</body>
 </html>
